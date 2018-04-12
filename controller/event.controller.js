@@ -1,6 +1,6 @@
 'use strict';
 
-const Event = require('../models/events');
+const Event = require('../models/event');
 
 function prueba(request, response) {
   response.status(200).send({
