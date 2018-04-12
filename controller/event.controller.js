@@ -11,9 +11,10 @@ function prueba(request, response) {
 function saveEvent(request, response) {
   var event = new Event();
 
-  event.benefitName = request.body.benefitName;
-  event.isCountPercentage = request.body.isCountPercentage;
-  event.branch = request.body.branch;
+  event.eventName = request.body.eventName;
+  event.date = request.body.date;
+  event.time= request.body.time;
+  event.place = request.body.place;
   event.address = request.body.address;
 
   event.save((error, benefitStored) => {
