@@ -8,7 +8,7 @@ const clientRoutes = require('./routes/client.router');
 const proyectRoutes = require('./routes/proyect.router');
 const restaurantRoutes = require('./routes/restaurant.router');
 const benefitRoutes = require('./routes/benefit.router');
-const eventRoutes = require('./routes/event.router');
+const eventRoutes = require('./routes/even.router');
 
 const app = express();
 

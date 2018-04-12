@@ -1,11 +1,11 @@
-'use strict';
+// 'use strict';
 
-const express = require('express');
-const eventController = require('../controller/event.controller');
+// const express = require('express');
+// const eventController = require('../controller/event.controller');
 
-const api = express.Router();
+// const api = express.Router();
 
-api.post('/guardar-event', eventController.saveEvent);
-api.get('/guardar-event', eventController.getEvents)
+// api.post('/guardar-event', eventController.saveEvent);
+// api.get('/guardar-event', eventController.getEvents)
 
-module.exports = api;
+// module.exports = api;
