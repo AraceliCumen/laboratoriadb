@@ -26,17 +26,15 @@
 const mongoose = require('mongoose');
 const app = require('./app');
 
-const config = require ('./config')
-
 const port = process.env.port || 3000;
 
 mongoose.connect('mongodb://localhost:27017/laboratoriadb', (error, response) => {
-    if (error) {
-        throw error;
-    } else {
-        console.log("Conexion a base de datos exitosa");
-        app.listen(port,"0.0.0.0", () => {
-            console.log(`el backend se conecto con el puerto 3000`);
-        });
-    }
+  if (error) {
+    throw error;
+  } else {
+    console.log("Conexion a base de datos exitosa");
+    app.listen(port, () => {
+      console.log(`el backend se conecto con el puerto ${port}`);
+    });
+  }
 });
