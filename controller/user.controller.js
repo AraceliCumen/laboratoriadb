@@ -31,10 +31,30 @@ function saveUser(request, response) {
             });
         }
     });
+}
 
+function signIn(request, response) {
+    var user = new User();
+
+    user.password = request.body.password;
+    user.email = request.body.email;
+
+    User.findOne({'password': user.password, 'email': user.email}).exec( (error,userResult) => {
+        if (error) {
+            response.status(400).send({
+                message: "Error al guardar"
+            });
+        } else {
+            response.status(200).send({
+                usuario: userResult
+            });
+        }
+    });
+    
 }
 
 module.exports = {
     prueba,
-    saveUser
+    saveUser,
+    signIn
 };
