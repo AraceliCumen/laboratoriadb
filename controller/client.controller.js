@@ -7,7 +7,6 @@ function saveClient(request, response) {
 
     client.companyName = request.body.companyName;
 
-
     client.save((error, clientStored) => {
         if (error) {
             response.status(400).send({ message: "Error al guardar" });

@@ -3,9 +3,9 @@
 const User = require('../models/user');
 
 function prueba(request, response) {
-    response.status(200).send({
-        message: "Probando petición get"
-    });
+  response.status(200).send({
+    message: "Probando petición get"
+  });
 }
 
 function saveUser(request, response) {
