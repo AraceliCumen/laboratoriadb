@@ -23,6 +23,15 @@ function saveProyect(request, response) {
     });
 }
 
+function getProjects(req, res) {
+    Proyect.find({}, (err, projects) => {
+      if(err) return res.status(500).send({message: `error al realizar la peticion ${err}`})
+      if(!projects) return res.status(404).send({message:'no hay proyectos'})
+      res.status(200).send({ projects }) 
+    })
+  }
+
 module.exports = {
-    saveProyect
+    saveProyect,
+    getProjects
 };
