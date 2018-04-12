@@ -9,7 +9,7 @@ const eventSchema = schema({
     date: Date,
     time: String,
     place: String,
-    address: String
+    address : String
 });
 
 module.exports = mongoose.model('Event', eventSchema);
