@@ -23,7 +23,7 @@ function saveProyect(request, response) {
     });
 }
 
-function getProjects(req, res) {
+function getProject(req, res) {
     Proyect.find({}, (err, proyects) => {
       if(err) return res.status(500).send({message: `error al realizar la peticion ${err}`})
       if(!proyects) return res.status(404).send({message:'No existen peliculas'})
@@ -33,5 +33,5 @@ function getProjects(req, res) {
 
 module.exports = {
     saveProyect,
-    getProjects
+    getProject
 };
