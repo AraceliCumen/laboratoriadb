@@ -31,7 +31,7 @@ function saveEvent(request, response) {
 }
 
 function getEvents(req, res) {
-  Events.find({}, (err, events) => {
+  events.find({}, (err, events) => {
     if(err) return res.status(500).send({message: `error al realizar la peticion ${err}`})
     if(!events) return res.status(404).send({message:'No existen peliculas'})
     res.status(200).send({ events }) 
