@@ -15,7 +15,7 @@ function saveEvent(request, response) {
   event.date = request.body.date;
   event.time= request.body.time;
   event.place = request.body.place;
-  event.address = request.body.address;
+  event.address = request.body.address
 
   event.save((error, eventStored) => {
     if (error) {
