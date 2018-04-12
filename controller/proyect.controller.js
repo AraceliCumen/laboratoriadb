@@ -6,12 +6,21 @@ function saveProyect(request, response) {
     var proyect = new Proyect();
 
     proyect.proyectName = request.body.proyectName;
+    proyect.companyName = request.body.companyName;
+    proyect.everisLine = request.body.everisLine;
     proyect.description = request.body.description;
     proyect.initialDate = request.body.initialDate;
     proyect.finishDate = request.body.finishDate;
     proyect.colaborates = request.body.colaborates;
     proyect.contactName = request.body.contactName;
-    proyect.contactEmail = request.body.contactEmail
+    proyect.contactEmail = request.body.contactEmail;
+    proyect.branch  = request.body.branch;
+    proyect.squad1  = request.body.squad1;
+    proyect.methodology  = request.body.methodology;
+    proyect.stack  = request.body.stack;
+    proyect.organizingTools  = request.body.organizingTools;
+    proyect.location  = request.body.;
+
 
 
     proyect.save((error, userStored) => {
