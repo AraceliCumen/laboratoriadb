@@ -12,4 +12,4 @@ const eventSchema = schema({
     address: String
 });
 
-module.exports = mongoose.model('InternalEvent', eventSchema);
+module.exports = mongoose.model('Event', eventSchema);

@@ -5,7 +5,7 @@ const eventController = require('../controller/event.controller');
 
 const api = express.Router();
 
-api.post('/guardar-event', eventController.saveInternalEvent);
-api.get('/guardar-event', eventController.getInternalEvent)
+api.post('/guardar-event', eventController.saveEvent);
+api.get('/guardar-event', eventController.getEvent)
 
 module.exports = api;

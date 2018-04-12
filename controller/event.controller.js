@@ -1,17 +1,17 @@
 'use strict';
 
-const InternalEvent = require('../models/event');
+const Event = require('../models/event');
 
-function saveInternalEvent(request, response) {
-  var internalEvent = new InternalEvent();
+function saveEvent(request, response) {
+  var event = new Event();
 
-  internalEvent.eventName = request.body.eventName;
-  internalEvent.date = internalEvent.body.date;
-  internalEvent.time = request.body.time;
-  internalEvent.place = request.body.place;
-  internalEvent.address = request.body.address;
+  event.eventName = request.body.eventName;
+  event.date = event.body.date;
+  event.time = request.body.time;
+  event.place = request.body.place;
+  event.address = request.body.address;
 
-  internalEvent.save((error, internalEventStored) => {
+  event.save((error, eventStored) => {
     if (error) {
       response.status(400).send({
         message: "Error al guardar"
@@ -24,8 +24,8 @@ function saveInternalEvent(request, response) {
   });
 }
 
-function getInternalEvent(req, res) {
-  InternalEvent.find({}, (err, events) => {
+function getEvent(req, res) {
+  Event.find({}, (err, events) => {
     if(err) return res.status(500).send({message: `error al realizar la peticion ${err}`})
     if(!events) return res.status(404).send({message:'No existen eventos'})
     res.status(200).send({ events }) 
@@ -33,6 +33,6 @@ function getInternalEvent(req, res) {
 }
 
 module.exports = {
-  saveInternalEvent,
-  getInternalEvent
+  saveEvent,
+  getEvent
 };
