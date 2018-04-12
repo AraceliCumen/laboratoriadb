@@ -6,6 +6,7 @@ const schema = mongoose.Schema;
 
 const proyectSchema = schema({
     proyectName: String,
+    companyName: String,
     everisLine: String,
     description: String,
     initialDate: Date,
