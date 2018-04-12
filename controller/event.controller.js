@@ -2,36 +2,25 @@
 
 const Event = require('../models/event');
 
-function prueba(request, response) {
-  response.status(200).send({
-    message: "Probando petición get"
-  });
-}
-
 function saveEvent(request, response) {
-  var event = new Event();
+    var event = new Event();
 
-  event.eventName = request.body.eventName;
-  event.date = request.body.date;
-  event.time= request.body.time;
-  event.place = request.body.place;
-  event.address = request.body.address;
+    event.eventName = request.body.eventName;
+    event.date = request.body.eventDate;
+    event.time = request.body.eventTime;
+    event.place = request.body.eventPlace;
+    event.address = request.body.eventAddress;
 
-  event.save((error, benefitStored) => {
-    if (error) {
-      response.status(400).send({
-        message: "Error al guardar"
-      });
-    } else {
-      response.status(200).send({
-        message: "Se guardo con exito"
-      });
-    }
-  });
+
+    event.save((error, eventStored) => {
+        if (error) {
+            response.status(400).send({ message: "Error al guardar" });
+        } else {
+            response.status(200).send({ message: "Se guardo con exito" });
+        }
+    });
 }
-
 
 module.exports = {
-  prueba,
-  saveEvent
+    saveEvent
 };
