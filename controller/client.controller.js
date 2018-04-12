@@ -19,5 +19,5 @@ function saveClient(request, response) {
 }
 
 module.exports = {
-    saveclient
+    saveClient
 };
