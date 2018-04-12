@@ -5,21 +5,21 @@ const Proyect = require('../models/proyect');
 function saveProyect(request, response) {
   var proyect = new Proyect();
 
-  proyect.proyectName = params.proyectName;
-  proyect.companyName = params.companyName;
-  proyect.everisLine = params.everisLine;
-  proyect.description = params.description;
-  proyect.initialDate = params.initialDate;
-  proyect.finishDate = params.finishDate;
-  proyect.colaborates = params.colaborates;
-  proyect.contactName = params.contactName;
-  proyect.contactEmail = params.contactEmail;
-  proyect.branch = params.branch;
-  proyect.squad1 = params.squad1;
-  proyect.methodology = params.methodology;
-  proyect.stack = params.stack;
-  proyect.organizingTools = params.organizingTools;
-  proyect.location = params.location;
+  proyect.proyectName = request.body.proyectName;
+  proyect.companyName = request.body.companyName;
+  proyect.everisLine = request.body.everisLine;
+  proyect.description = request.body.description;
+  proyect.initialDate = request.body.initialDate;
+  proyect.finishDate = request.body.finishDate;
+  proyect.colaborates = request.body.colaborates;
+  proyect.contactName = request.body.contactName;
+  proyect.contactEmail = request.body.contactEmail;
+  proyect.branch = request.body.branch;
+  proyect.squad1 = request.body.squad1;
+  proyect.methodology = request.body.methodology;
+  proyect.stack = request.body.stack;
+  proyect.organizingTools = request.body.organizingTools;
+  proyect.location = request.body.location;
 
 
   proyect.save((error, userStored) => {
