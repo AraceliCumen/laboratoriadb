@@ -6,7 +6,7 @@ const schema = mongoose.Schema;
 
 const benefitSchema = schema({
     benefitName: String,
-    isCountPercentage: String,
+    disCountPercentage: String,
     branch: String,
     address: String
 });
