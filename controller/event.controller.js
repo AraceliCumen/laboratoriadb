@@ -1,23 +1,17 @@
 'use strict';
 
-const Events = require('../models/event');
+const InternalEvent = require('../models/event');
 
-function prueba(request, response) {
-  response.status(200).send({
-    message: "Probando petición get"
-  });
-}
+function saveInternalEvent(request, response) {
+  var internalEvent = new InternalEvent();
 
-function saveEvent(request, response) {
-  var events = new Event();
+  internalEvent.eventName = request.body.eventName;
+  internalEvent.date = internalEvent.body.date;
+  internalEvent.time = request.body.time;
+  internalEvent.place = request.body.place;
+  internalEvent.address = request.body.address;
 
-  events.eventName = request.body.eventName;
-  events.date = request.body.date;
-  events.time= request.body.time;
-  events.place = request.body.place;
-  events.address = request.body.address
-
-  events.save((error, eventStored) => {
+  internalEvent.save((error, internalEventStored) => {
     if (error) {
       response.status(400).send({
         message: "Error al guardar"
@@ -30,16 +24,15 @@ function saveEvent(request, response) {
   });
 }
 
-function getEvents(req, res) {
-  Events.find({}, (err, events) => {
+function getInternalEvent(req, res) {
+  InternalEvent.find({}, (err, events) => {
     if(err) return res.status(500).send({message: `error al realizar la peticion ${err}`})
-    if(!events) return res.status(404).send({message:'No existen peliculas'})
+    if(!events) return res.status(404).send({message:'No existen eventos'})
     res.status(200).send({ events }) 
   })
 }
 
 module.exports = {
-  prueba,
-  saveEvent,
-  getEvents
+  saveInternalEvent,
+  getInternalEvent
 };
