@@ -3,35 +3,45 @@
 const Proyect = require('../models/proyect');
 
 function saveProyect(request, response) {
-    var proyect = new Proyect();
+  var proyect = new Proyect();
 
-    proyect.proyectName = request.body.proyectName;
-    proyect.description = request.body.description;
-    proyect.initialDate = request.body.initialDate;
-    proyect.finishDate = request.body.finishDate;
-    proyect.colaborates = request.body.colaborates;
-    proyect.contactName = request.body.contactName;
-    proyect.contactEmail = request.body.contactEmail
+  proyect.proyectName = params.proyectName;
+  proyect.companyName = params.companyName;
+  proyect.everisLine = params.everisLine;
+  proyect.description = params.description;
+  proyect.initialDate = params.initialDate;
+  proyect.finishDate = params.finishDate;
+  proyect.colaborates = params.colaborates;
+  proyect.contactName = params.contactName;
+  proyect.contactEmail = params.contactEmail;
+  proyect.branch = params.branch;
+  proyect.squad1 = params.squad1;
+  proyect.methodology = params.methodology;
+  proyect.stack = params.stack;
+  proyect.organizingTools = params.organizingTools;
+  proyect.location = params.location;
 
 
-    proyect.save((error, userStored) => {
-        if (error) {
-            response.status(400).send({ message: "Error al guardar" });
-        } else {
-            response.status(200).send({ message: "Se guardo con exito" });
-        }
-    });
+  proyect.save((error, userStored) => {
+    if (error) {
+      response.status(400).send({ message: "Error al guardar" });
+    } else {
+      response.status(200).send({ message: "Se guardo con exito" });
+    }
+  });
 }
 
 function getProject(req, res) {
-    Proyect.find({}, (err, proyects) => {
-      if(err) return res.status(500).send({message: `error al realizar la peticion ${err}`})
-      if(!proyects) return res.status(404).send({message:'No existen peliculas'})
-      res.status(200).send({ proyects }) 
-    })
+  Proyect.find({}, (err, proyects) => {
+    if (err) return res.status(500).send({ message: `error al realizar la peticion ${err}` })
+    if (!proyects) return res.status(404).send({ message: 'No existen peliculas' })
+    res.status(200).send({ proyects })
+  })
 }
 
+
+
 module.exports = {
-    saveProyect,
-    getProject
+  saveProyect,
+  getProject
 };
