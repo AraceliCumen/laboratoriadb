@@ -12,7 +12,7 @@ function saveBenefit(request, response) {
   var benefit = new Benefit();
 
   benefit.benefitName = request.body.benefitName;
-  benefit.isCountPercentage = request.body.isCountPercentage;
+  benefit.disCountPercentage = request.body.disCountPercentage;
   benefit.branch = request.body.branch;
   benefit.address = request.body.address;
 
