@@ -29,8 +29,17 @@ function saveBenefit(request, response) {
   });
 }
 
+function getBenefit(req, res) {
+  Benefit.find({}, (err, benefits) => {
+    if(err) return res.status(500).send({message: `error al realizar la peticion ${err}`})
+    if(!benefits) return res.status(404).send({message:'No existen eventos'})
+    res.status(200).send({ benefits }) 
+  })
+}
+
 
 module.exports = {
   prueba,
-  saveBenefit
+  saveBenefit,
+  getBenefit
 };
