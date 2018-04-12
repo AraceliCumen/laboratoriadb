@@ -1,6 +1,6 @@
 'use strict';
 
-const Event = require('../models/event');
+const Event = require('../models/events');
 
 function prueba(request, response) {
   response.status(200).send({
@@ -9,15 +9,15 @@ function prueba(request, response) {
 }
 
 function saveEvent(request, response) {
-  var event = new Event();
+  var events = new Event();
 
-  event.eventName = request.body.eventName;
-  event.date = request.body.date;
-  event.time= request.body.time;
-  event.place = request.body.place;
-  event.address = request.body.address
+  events.eventName = request.body.eventName;
+  events.date = request.body.date;
+  events.time= request.body.time;
+  events.place = request.body.place;
+  events.address = request.body.address
 
-  event.save((error, eventStored) => {
+  events.save((error, eventStored) => {
     if (error) {
       response.status(400).send({
         message: "Error al guardar"
