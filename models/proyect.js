@@ -18,7 +18,8 @@ const proyectSchema = schema({
     squad1 : String,
     methodology : String,
     stack: String,
-    organizingTools: String
+    organizingTools: String,
+    location: String
 });
 
 module.exports = mongoose.model('Proyect', proyectSchema);
