@@ -17,7 +17,7 @@ function saveEvent(request, response) {
   event.place = request.body.place;
   event.address = request.body.address;
 
-  event.save((error, benefitStored) => {
+  event.save((error, eventStored) => {
     if (error) {
       response.status(400).send({
         message: "Error al guardar"
