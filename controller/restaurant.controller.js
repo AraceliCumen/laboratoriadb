@@ -28,8 +28,16 @@ function saveRestaurant(request, response) {
   });
 }
 
+function getRestaurants(req, res) {
+  Restaurant.find({}, (err, restaurants) => {
+    if(err) return res.status(500).send({message: `error al realizar la peticion ${err}`})
+    if(!restaurants) return res.status(404).send({message:'No existen restaurantes'})
+    res.status(200).send({ restaurants }) 
+  })
+}
 
 module.exports = {
   prueba,
-  saveRestaurant
+  saveRestaurant,
+  getRestaurants
 };
