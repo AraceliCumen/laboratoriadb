@@ -6,8 +6,6 @@ function saveClient(request, response) {
     var client = new Client();
 
     client.companyName = request.body.companyName;
-    client.description = request.body.description;
-
 
     client.save((error, clientStored) => {
         if (error) {
